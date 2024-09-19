@@ -2,6 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { Container, Paper, TextField, Typography, Box } from "@mui/material";
+import { Button } from "bootstrap";
 import { writeBatch, doc, collection, getDoc } from "firebase/firestore"; // Added missing imports
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -87,9 +88,19 @@ export default function Generate() {
                         variant="outlined"
                         sx={{ mb: 2 }}
                     />
-                    {/* Add other UI elements as needed */}
+                    <Button
+                    variant = "contained"
+                    color = "primary"
+                    onClick={handleSubmit}
+                    fullWidth
+                    >
+                        {' '}
+                        Submit
+                    </Button>
                 </Paper>
             </Box>
+
+            {flashcards.length}
         </Container>
     );
 }
